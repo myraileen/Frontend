@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "../App.css";
 
 const CreateEvent = props => {
@@ -10,7 +10,10 @@ const CreateEvent = props => {
         onSubmit={props.handleEventSubmit}
         onChange={props.handleEventChange}
       >
-        <label className='eventName'>Name:</label>
+        <label className='eventSeller'>Seller:</label>
+        <input type='text' name='eventName' />
+
+        <label className='eventName'>Sale Name:</label>
         <input type='text' name='eventName' />
 
         <label className='eventDate'>Date:</label>
