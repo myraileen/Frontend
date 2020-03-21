@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import "../App.css";
 
 class EventDetail extends Component {
@@ -17,7 +17,6 @@ class EventDetail extends Component {
           <div>Event Name</div>
           <div>Event Date</div>
           <div>Event Location</div>
-          <Route exact path='/new-item-form' render={props => <CreateItem />} />
       </div>
     );
   }

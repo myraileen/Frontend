@@ -4,8 +4,9 @@ import axios from "axios";
 
 import "./App.css";
 import Home from "./components/Home";
-import Event from "./components/Event";
+import EventDetail from "./components/EventDetail";
 import CreateEvent from "./components/CreateEvent";
+import CreateItem from "./components/CreateItem";
 
 class App extends React.Component {
   constructor(props) {
@@ -13,17 +14,34 @@ class App extends React.Component {
     this.state = {
       eventName: "",
       eventDate: "",
-      eventLocation: ""
+      eventLocation: "",
+      itemName: "",
+      itemDescription: "",
+      itemCost: "",
+      itemSold: ""
     };
   }
 
-  handleSubmit = event => {
+  handleEventSubmit = event => {
     event.preventDefault();
     console.log(this.state);
-    // this.createUserAxios();
+    // this.createEventAxios();
   };
 
-  handleChange = event => {
+  handleEventChange = event => {
+    console.log(event.target.value);
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
+  handleItemSubmit = event => {
+    event.preventDefault();
+    console.log(this.state);
+    // this.createEventAxios();
+  };
+
+  handleItemChange = event => {
     console.log(event.target.value);
     this.setState({
       [event.target.name]: event.target.value
@@ -36,18 +54,27 @@ class App extends React.Component {
         <Link to='/' className='home'>e-sale</Link>
         {/* Home component available consistently at top of page */}
         <Route exact path='/' render={props => <Home />} />
-        {/* Home page should create a list of "Event" components for each Event*/}
-        <Route exact path='/event' render={props => <Event />} />
+        {/* Home page should create a list of "EventDetails" components for each Event*/}
+        <Route exact path='/event/:id' render={props => <EventDetail />} />
         {/* */}
         <Route
           path='/new-event-form'
           render={() => (
             <CreateEvent
-              handleChange={this.handleEventChange}
-              handleSubmit={this.handleEventSubmit}
+              handleEventChange={this.handleEventChange}
+              handleEventSubmit={this.handleEventSubmit}
             />
           )}
         />
+        <Route
+        path='/new-item'
+        render={() => (
+          <CreateItem
+            handleItemChange={this.handleItemChange}
+            handleItemSubmit={this.handleItemSubmit}
+          />
+        )}
+      />
         {/* <Route exact path='/item' render={props => <Item />} /> */}
       </div>
     );
