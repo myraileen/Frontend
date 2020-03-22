@@ -13,7 +13,7 @@ const CreateEvent = props => {
         <label className='eventSeller'>Seller:</label>
         <input type='text' name='eventName' />
 
-        <label className='eventName'>Sale Name:</label>
+        <label className='eventName'>Event Name:</label>
         <input type='text' name='eventName' />
 
         <label className='eventDate'>Date:</label>
