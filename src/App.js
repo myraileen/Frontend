@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Link, Switch, Redirect } from "react-router-dom";
 import axios from "axios";
 
+import events from "./events.json"
 import "./App.css";
 import Home from "./components/Home";
 import Events from "./components/Events";
@@ -14,7 +15,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       //events is array of events found in api get events call
-      events: [],
+      // events: [],
+      events: events,
       //create event form variables
       eventSeller: "",
       eventName: "",

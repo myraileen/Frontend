@@ -7,7 +7,12 @@ const Events = props => {
     return (
       <Event 
     //   key={event._id} 
-      event={event} 
+      key={event.index}
+      seller={event.seller} 
+      date={event.date} 
+      description={event.description} 
+      location={event.location} 
+      items={event.items} 
       handleDelete={props.handleDelete} />
     );
   });
