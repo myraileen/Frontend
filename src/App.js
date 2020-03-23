@@ -1,14 +1,16 @@
 import React from "react";
-import { Route, Link, Switch, Redirect } from "react-router-dom";
+import { Route, Link, Switch, Redirect, withRouter } from "react-router-dom";
 import axios from "axios";
 
-import events from "./events.json"
+import events from "./events.json";
 import "./App.css";
-import Home from "./components/Home";
+// import Home from "./components/Home";
 import Events from "./components/Events";
 import EventDetail from "./components/EventDetail";
 import CreateEvent from "./components/CreateEvent";
 import CreateItem from "./components/CreateItem";
+
+const backendUrl = "http://localhost:8080/";
 
 class App extends React.Component {
   constructor(props) {
@@ -66,10 +68,10 @@ class App extends React.Component {
   //     });
   //   }
 
-  handleEventClick = event => {
-    event.preventDefault();
-    console.log("clicked event");
-  };
+  // handleEventClick = event => {
+  //   event.preventDefault();
+  //   console.log("clicked event");
+  // };
 
   handleEventSubmit = event => {
     event.preventDefault();
@@ -101,12 +103,12 @@ class App extends React.Component {
     return (
       <div className='App'>
         <Link to='/' className='home'>
-          e-sale
+          <p className="title">e-sale</p> <p className="logo">🛒</p>
         </Link>
         {/* Home component available consistently at top of page */}
         {/* <Route exact path='/' render={props => <Home />} /> */}
 
-        {/* create a row component (Event) for each event in dataset */}
+        {/* create an Event (row component) for each event in dataset */}
         <Switch>
           <Route
             exact
@@ -118,16 +120,21 @@ class App extends React.Component {
               />
             )}
           />
-          {/* When an event component on home page is clicked, route user to EventDetail */}
+
+          {/* Route to view EventDetail component */}
           <Route
-            exact
             path='/event/:id'
-            render={props => (
-              <EventDetail handleEventClick={this.handleEventClick} />
+            render={routerProps => (
+              <EventDetail {...routerProps} events={this.state.events}
+                newItem={this.state.newItem}
+                handleChange={this.handleItemChange}
+                handleNewTodoSubmit={this.handleItemSubmit}
+                itemSold={this.itemSold}
+              />
             )}
           />
 
-          {/* Route to create a new event */}
+          {/* Route to create a new event (from Home) */}
           <Route
             path='/new-event-form'
             render={() => (
@@ -138,7 +145,7 @@ class App extends React.Component {
             )}
           />
 
-          {/* Route to create a new event item */}
+          {/* Route to create a new event item (on EventDetails component)*/}
           <Route
             path='/new-item-form'
             render={() => (
@@ -150,7 +157,6 @@ class App extends React.Component {
           />
           <Route path='/*' render={() => <Redirect to='/' />} />
         </Switch>
-        {/* <Route exact path='/item' render={props => <Item />} /> */}
       </div>
     );
   }

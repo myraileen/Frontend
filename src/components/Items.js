@@ -1,11 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Item from "./Item";
 
 const Items = props => {
     let allItems = props.items.map(item => {
       return (
-        <item 
+        <Item 
       //   key={item._id} 
         key={item.index}
         seller={item.item} 
