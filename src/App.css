@@ -1,0 +1,68 @@
+* {
+  border:1pt solid rgb(221, 221, 220);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.home {
+  display: flex;
+  font-size: x-large;
+  padding: 10px;
+  text-decoration: none;
+}
+.home > .logo {
+  object-position: right;
+}
+
+.create-new {
+  flex-direction: column;
+  align-self: flex-end;
+  text-align: center;
+  width: 20%;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: medium;
+  padding: 3px;
+  border-radius: 4px;
+  background-color: mediumseagreen;
+  color: white;
+  border-bottom: darkgreen 2px solid;
+  border-right: darkgreen 2px solid;
+  margin: 5px;
+  padding: 5px;
+}
+
+.events-container {
+  display: flex;
+  flex-direction: column;
+  padding:10px;
+  background-color: none;
+}
+
+.event-row {
+  display: flex;
+  padding: 10px;
+}
+
+div.events-container > div:nth-of-type(odd) {
+  background: #bfbebe;
+}
+
+div.events-container > div:nth-of-type(even) {
+  background: #e0e0e0;
+}
+  
+.event-form {
+  width: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+}
+
+.event-form > label {
+  margin: 20px;
+}
