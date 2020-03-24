@@ -9,12 +9,12 @@ const Event = props => {
     console.log(props)
   return (
     <div>
-        <Link to={`/event/${props._id}`} className="event-row">
-        {props.date}: {props.description} {props.location}
+        <Link to={`/event/${props.event._id}`} className="event-row">
+        {props.event.date}: {props.event.description} {props.event.location}
         </Link>
-      {/* <button id={props.key} onClick={props.handleDelete}>
+      <button id={props.event._id} onClick={props.handleDelete}>
       Delete
-    </button> */}
+    </button>
       {/* <Items items={props.items} /> */}
     </div>
   );

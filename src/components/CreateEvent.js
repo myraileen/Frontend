@@ -7,8 +7,8 @@ const CreateEvent = props => {
       <h2>New Event</h2>
       <form
         className='event-form'
-        onSubmit={props.handleEventSubmit}
-        onChange={props.handleEventChange}
+        onChange={props.handleChange}
+        onSubmit={props.handleSubmit}
       >
         <label className='eventSeller'>Seller:</label>
         <input type='text' name='eventName' />
@@ -21,8 +21,12 @@ const CreateEvent = props => {
 
         <label className='eventLocation'>Location:</label>
         <input type='text' name='eventLocation' />
-<div></div>
-        <input type='submit' className='create-new-form-button' value='Create Event' />
+        <div></div>
+        <input
+          type='submit'
+          className='create-new-form-button'
+          value='Create Event'
+        />
       </form>
     </div>
   );

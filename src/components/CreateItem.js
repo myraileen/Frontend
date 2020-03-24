@@ -7,8 +7,8 @@ const CreateItem = props => {
       <h2>New Item</h2>
       <form
         className='event-form'
-        onSubmit={props.handleItemSubmit}
-        onChange={props.handleItemChange}
+        onChange={props.handleChange}
+        onSubmit={props.handleSubmit}
       >
         <label className='itemName'>Item:</label>
         <input type='text' name='eventName' />
@@ -21,8 +21,12 @@ const CreateItem = props => {
 
         <label className='itemSold'>Sold:</label>
         <input type='text' name='itemSold' />
-<div></div>
-        <input type='submit' className='create-new-form-button' value='Create Item' />
+        <div></div>
+        <input
+          type='submit'
+          className='create-new-form-button'
+          value='Create Item'
+        />
       </form>
     </div>
   );

@@ -3,22 +3,14 @@ import { Link } from "react-router-dom";
 import Event from "./Event";
 
 const Events = props => {
-  console.log(props.events);
-
-
-  let allEvents =  props.events.map(eventRow => {
-        // console.log(eventRow)})
+  let allEvents =  props.events.map(event => {
     return (
       <Event
-        key={eventRow._id}
-        seller={eventRow.seller}
-        date={eventRow.date}
-        description={eventRow.eDescription}
-        location={eventRow.location}
-        // items={event.items}
+        key={event._id}
+        event={event}
         handleDelete={props.handleDelete}
       />
-    );
+    )
   })
 
   return (
@@ -33,23 +25,3 @@ const Events = props => {
 };
 
 export default Events;
-
-// class Events extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { events: props.data }
-//   }
-
-//   componentDidMount() {
-
-//   }
-
-//   render() {
-//     console.log(this.props)
-//     return ( <>
-
-//      </>  );
-//   }
-// }
-
-// export default Events;

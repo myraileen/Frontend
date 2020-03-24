@@ -83,13 +83,13 @@ class App extends React.Component {
   //   console.log("clicked event");
   // };
 
-  handleEventSubmit = event => {
+  handleSubmit = event => {
     event.preventDefault();
     console.log(this.state);
     // this.createEventAxios();
   };
 
-  handleEventChange = event => {
+  handleChange = event => {
     console.log(event.target.value);
     this.setState({
       //add name attribute to the form fields
@@ -99,18 +99,29 @@ class App extends React.Component {
     });
   };
 
-  handleItemSubmit = event => {
+  deleteAxiosEvent = event => {
     event.preventDefault();
-    console.log(this.state);
-    // this.createEventAxios();
-  };
 
-  handleItemChange = event => {
-    console.log(event.target.value);
-    this.setState({
-      [event.target.name]: event.target.value
+    axios({
+      method: "DELETE",
+      url: `${backendUrl}${event.target.id}`
+    }).then(deletedEvent => {
+      this.getEventsAxios();
     });
   };
+
+  // handleItemSubmit = event => {
+  //   event.preventDefault();
+  //   console.log(this.state);
+  //   // this.createEventAxios();
+  // };
+
+  // handleItemChange = event => {
+  //   console.log(event.target.value);
+  //   this.setState({
+  //     [event.target.name]: event.target.value
+  //   });
+  // };
 
   render() {
     console.log(this.state.events)
@@ -141,8 +152,8 @@ class App extends React.Component {
             render={routerProps => (
               <EventDetail {...routerProps} events={this.state.events}
                 newItem={this.state.newItem}
-                handleChange={this.handleItemChange}
-                handleNewTodoSubmit={this.handleItemSubmit}
+                handleChange={this.handleChange}
+                handleNewTodoSubmit={this.handleSubmit}
                 itemSold={this.itemSold}
               />
             )}
@@ -153,8 +164,8 @@ class App extends React.Component {
             path='/new-event'
             render={() => (
               <CreateEvent
-                handleEventChange={this.handleEventChange}
-                handleEventSubmit={this.handleEventSubmit}
+                handleEventChange={this.handleChange}
+                handleEventSubmit={this.handleSubmit}
               />
             )}
           />
@@ -164,8 +175,8 @@ class App extends React.Component {
             path='/new-item'
             render={() => (
               <CreateItem
-                handleItemChange={this.handleItemChange}
-                handleItemSubmit={this.handleItemSubmit}
+                handleItemChange={this.handleChange}
+                handleItemSubmit={this.handleSubmit}
               />
             )}
           />
@@ -175,5 +186,5 @@ class App extends React.Component {
     );
   }
 }
-
+//need to wrap with Router... mern-lab...
 export default App;
