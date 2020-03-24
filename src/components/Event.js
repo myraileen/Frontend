@@ -28,7 +28,9 @@ const Event = props => {
       />
 
       <Link to={`/event/${props.event._id}`} className='event-row'>
-        {date}: {props.event.description} {props.event.location}
+        {/* {date}:  */}
+        {props.event.eDescription} 
+        {/* {props.event.location} */}
       </Link>
       {/* <button id={props.event._id} onClick={props.handleDelete}>
       Delete
