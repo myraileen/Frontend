@@ -5,8 +5,6 @@ import Items from "./Items";
 
 // {/* need to move items to event details still */}
 const Event = props => {
-  
-    console.log(props)
   return (
     <div>
         <Link to={`/event/${props.event._id}`} className="event-row">

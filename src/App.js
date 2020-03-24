@@ -124,7 +124,6 @@ class App extends React.Component {
   // };
 
   render() {
-    console.log(this.state.events)
     return (
       <div className='App'>
         <Link to='/' className='home'>
