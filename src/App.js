@@ -9,7 +9,7 @@ import EventDetail from "./components/EventDetail";
 import CreateEvent from "./components/CreateEvent";
 import CreateItem from "./components/CreateItem";
 
-const backendUrl = "http://localhost:8080/event";
+const backendUrl = "http://localhost:8080/";
 
 class App extends React.Component {
   constructor(props) {
@@ -127,7 +127,13 @@ class App extends React.Component {
     return (
       <div className='App'>
         <Link to='/' className='home'>
-          <p className="title">e-sale</p> <span role="img" className="logo" aria-label="logo">🛒</span>
+          <p className="title">
+            <p className="e">e</p>
+            <p className="s">s</p>
+            <p className="a">a</p>
+            <p className="l">l</p>
+            <p className="e2">e</p>
+            </p> <span role="img" className="logo" aria-label="logo">🛒</span>
         </Link>
         {/* Home component available consistently at top of page */}
         {/* <Route exact path='/' render={props => <Home />} /> */}
@@ -163,8 +169,8 @@ class App extends React.Component {
             path='/new-event'
             render={() => (
               <CreateEvent
-                handleEventChange={this.handleChange}
-                handleEventSubmit={this.handleSubmit}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
               />
             )}
           />
@@ -174,8 +180,8 @@ class App extends React.Component {
             path='/new-item'
             render={() => (
               <CreateItem
-                handleItemChange={this.handleChange}
-                handleItemSubmit={this.handleSubmit}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
               />
             )}
           />

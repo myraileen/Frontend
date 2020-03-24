@@ -6,7 +6,7 @@
 .App {
   display: flex;
   flex-direction: column;
-  background-color: rgba(244, 227, 196, 0.735);
+  background-color: rgb(255, 255, 254);
 }
 
 .home {
@@ -14,23 +14,48 @@
   padding: 2%;
   text-decoration: none;
   border-bottom: 1pt solid rgb(222, 192, 148);
+  height: max-content;
   /* height: 20%; */
 }
 
 .home > .title {
-  font-family: 'Ma Shan Zheng', cursive;
+  margin: -50px 0px -50px 0px;
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  flex-direction: row;
   font-size:4em;
-  font-style: italic;
-  text-shadow: rgb(171, 103, 79)  0px 0 10px;
+  font-weight: bolder;
+  text-shadow: rgba(134, 89, 22, 0.755)  0px 0 5px;
   width:85%;
   color: rgba(230, 104, 54, 0.899);
+  height: max-content;
 }
+
+.home > .title > .e {
+  color:red;
+} 
+
+.home > .title > .s {
+  color:rgb(67, 67, 201);
+} 
+
+.home > .title > .a {
+  color:rgb(240, 221, 11);
+} 
+
+.home > .title > .l {
+  color:rgb(52, 154, 76);
+} 
+
+.home > .title > .e2 {
+  color:rgb(157, 103, 211);
+} 
 
 .home > .logo {
   object-position: right;
   align-self: center;
   font-size: 400%;
-  text-shadow: rgb(96, 65, 37)  0px 0 3px;
+  /* text-shadow: rgb(96, 65, 37)  0px 0 3px; */
 }
 
 .create-new {
