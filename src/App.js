@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Link, Switch, Redirect, withRouter } from "react-router-dom";
 import axios from "axios";
 
-import events from "./events.json";
 import "./App.css";
 // import Home from "./components/Home";
 import Events from "./components/Events";
@@ -10,7 +9,7 @@ import EventDetail from "./components/EventDetail";
 import CreateEvent from "./components/CreateEvent";
 import CreateItem from "./components/CreateItem";
 
-const backendUrl = "http://localhost:8080/";
+const backendUrl = "http://localhost:8080/event";
 
 class App extends React.Component {
   constructor(props) {
@@ -18,7 +17,7 @@ class App extends React.Component {
     this.state = {
       //events is array of events found in api get events call
       // events: [],
-      events: events,
+      events: [],
       //create event form variables
       eventSeller: "",
       eventName: "",
@@ -30,6 +29,17 @@ class App extends React.Component {
       itemCost: "",
       itemSold: ""
     };
+  }
+
+  componentDidMount() {
+    this.getEventsAxios();
+  }
+
+  getEventsAxios() {
+    axios({ method: "GET", url: backendUrl })
+    .then(eventData =>
+      this.setState({ events: eventData })
+    );
   }
 
   // createEventAxios() {
@@ -100,10 +110,11 @@ class App extends React.Component {
   };
 
   render() {
+    console.log(`app.js ${this.state.events}`)
     return (
       <div className='App'>
         <Link to='/' className='home'>
-          <p className="title">e-sale</p> <p className="logo">🛒</p>
+          <p className="title">e-sale</p> <span role="img" className="logo" aria-label="logo">🛒</span>
         </Link>
         {/* Home component available consistently at top of page */}
         {/* <Route exact path='/' render={props => <Home />} /> */}

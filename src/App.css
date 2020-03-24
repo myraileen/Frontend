@@ -1,21 +1,36 @@
 * {
-  border:1pt solid rgb(221, 221, 220);
+  /* border:1pt solid rgb(221, 221, 220); */
+  /* background-color: rgba(244, 227, 196, 0.735); */
 }
 
 .App {
   display: flex;
   flex-direction: column;
-  text-align: left;
+  background-color: rgba(244, 227, 196, 0.735);
 }
 
 .home {
   display: flex;
-  font-size: x-large;
-  padding: 10px;
+  padding: 2%;
   text-decoration: none;
+  border-bottom: 1pt solid rgb(222, 192, 148);
+  /* height: 20%; */
 }
+
+.home > .title {
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size:4em;
+  font-style: italic;
+  text-shadow: rgb(171, 103, 79)  0px 0 10px;
+  width:85%;
+  color: rgba(230, 104, 54, 0.899);
+}
+
 .home > .logo {
   object-position: right;
+  align-self: center;
+  font-size: 400%;
+  text-shadow: rgb(96, 65, 37)  0px 0 3px;
 }
 
 .create-new {
@@ -39,13 +54,13 @@
 .events-container {
   display: flex;
   flex-direction: column;
-  padding:10px;
+  padding:2%;
   background-color: none;
 }
 
 .event-row {
   display: flex;
-  padding: 10px;
+  padding: 2%;
 }
 
 div.events-container > div:nth-of-type(odd) {
@@ -57,7 +72,7 @@ div.events-container > div:nth-of-type(even) {
 }
   
 .event-form {
-  width: 300px;
+  width: 90%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 20px;
