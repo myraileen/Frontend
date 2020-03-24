@@ -21,8 +21,8 @@ const CreateItem = props => {
 
         <label className='itemSold'>Sold:</label>
         <input type='text' name='itemSold' />
-
-        <input type='submit' className='addButton' value='Create Item' />
+<div></div>
+        <input type='submit' className='create-new-form-button' value='Create Item' />
       </form>
     </div>
   );

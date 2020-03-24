@@ -21,8 +21,8 @@ const CreateEvent = props => {
 
         <label className='eventLocation'>Location:</label>
         <input type='text' name='eventLocation' />
-
-        <input type='submit' className='addButton' value='Create Event' />
+<div></div>
+        <input type='submit' className='create-new-form-button' value='Create Event' />
       </form>
     </div>
   );

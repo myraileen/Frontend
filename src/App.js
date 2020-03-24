@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Link, Switch, Redirect } from "react-router-dom";
+import { Route, Link, Switch, Redirect , withRouter} from "react-router-dom";
 import axios from "axios";
 
 import "./App.css";
@@ -17,7 +17,7 @@ class App extends React.Component {
     this.state = {
       //events is array of events found in api get events call
       // events: [],
-      events: '',
+      events: [],
       //create event form variables
       eventSeller: "",
       eventName: "",
@@ -38,7 +38,7 @@ class App extends React.Component {
   getEventsAxios() {
     axios({ method: "GET", url: backendUrl })
     .then(eventData =>
-      this.setState({ events: eventData })
+      this.setState({ events: eventData.data })
     );
   }
 
@@ -92,6 +92,9 @@ class App extends React.Component {
   handleEventChange = event => {
     console.log(event.target.value);
     this.setState({
+      //add name attribute to the form fields
+      //can refactor for generic
+      //study mern-lab
       [event.target.name]: event.target.value
     });
   };
@@ -110,6 +113,7 @@ class App extends React.Component {
   };
 
   render() {
+    console.log(this.state.events)
     return (
       <div className='App'>
         <Link to='/' className='home'>
