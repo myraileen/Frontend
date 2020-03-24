@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Link, Switch, Redirect, withRouter } from "react-router-dom";
+import { Route, Link, Switch, Redirect } from "react-router-dom";
 import axios from "axios";
 
 import "./App.css";
@@ -17,7 +17,7 @@ class App extends React.Component {
     this.state = {
       //events is array of events found in api get events call
       // events: [],
-      events: [],
+      events: '',
       //create event form variables
       eventSeller: "",
       eventName: "",
@@ -110,7 +110,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(`app.js ${this.state.events}`)
     return (
       <div className='App'>
         <Link to='/' className='home'>
@@ -147,7 +146,7 @@ class App extends React.Component {
 
           {/* Route to create a new event (from Home) */}
           <Route
-            path='/new-event-form'
+            path='/new-event'
             render={() => (
               <CreateEvent
                 handleEventChange={this.handleEventChange}
@@ -158,7 +157,7 @@ class App extends React.Component {
 
           {/* Route to create a new event item (on EventDetails component)*/}
           <Route
-            path='/new-item-form'
+            path='/new-item'
             render={() => (
               <CreateItem
                 handleItemChange={this.handleItemChange}
