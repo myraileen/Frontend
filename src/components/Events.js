@@ -16,7 +16,7 @@ const Events = props => {
   return (
     <>
       <Link to='/new-event' className='create-new'>
-        Add Event
+        Add Store
       </Link>
       <div className="events-container">{allEvents}</div>
       

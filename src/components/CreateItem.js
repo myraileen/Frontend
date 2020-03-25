@@ -21,7 +21,7 @@ const CreateItem = props => {
         <input type='text' name='itemCost' placeholder="Cost" required/>
 
         <label className='itemUrl'>Image URL:</label>
-        <input type='text' name='itemUrl' placeholder="Item URL" required/>
+        <input type='text' name='itemUrl' placeholder="Item URL" />
         <div></div>
         <input
           type='submit'

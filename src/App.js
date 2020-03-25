@@ -87,7 +87,9 @@ class App extends React.Component {
       console.log(newItem);
       this.setState(prevState => ({
         items: [...prevState.items, newItem.data]
-      }));
+      })
+      )
+      this.props.history.push(`/event/${newItem.data._id}`)
     });
   }
 
@@ -103,12 +105,12 @@ class App extends React.Component {
 
   handleItemSubmit = event => {
     event.preventDefault();
-    console.log("click item");
+    // console.log("click item");
     this.createItemAxios();
   };
 
   handleChange = event => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     this.setState({
       //add name attribute to the form fields
       //can refactor for generic

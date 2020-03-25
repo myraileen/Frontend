@@ -1,27 +1,50 @@
-import React from "react";
+import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import Item from "./Item";
+import axios from 'axios';
 
-const Items = props => {
-    let allItems = props.items.map(item => {
+let backendUrl = 'http://localhost:8080/event/'
+
+class Items extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      items: [],
+      backendUrl: backendUrl
+     }
+  }
+  
+  componentDidMount() {
+    this.getItemsAxios();
+  }
+
+  getItemsAxios() {
+    backendUrl = `${backendUrl}${this.props._id}`
+    console.log(backendUrl)
+    axios({ method: "GET", url: backendUrl }).then(itemData =>
+      this.setState({ items: itemData.data })
+    );
+  }
+
+  // need axios call to get item details here
+  allItems = props => {
+    let allItems =  this.state.items.map(item => {
       return (
-        <Item 
-      //   key={item._id} 
-        key={item.index}
-        seller={item.item} 
-        description={item.description} 
-        date={item.cost} 
-        location={item.sold} 
-        items={item.items} 
-        handleDelete={props.handleDelete} />
-      );
-    });
+        <Item
+          key={item._id}
+          item={item}
+          handleDelete={props.handleItemDelete}
+        />
+      )
+    })}
 
-  return (
+  render() { 
+    console.log(this.props)
+    return (  
     <div>
-      <div>{allItems}</div>
-    </div>
-  );
-};
-
+      {/* <div>{allItems}</div> */}
+    </div> );
+  }
+}
+ 
 export default Items;
