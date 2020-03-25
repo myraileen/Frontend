@@ -111,9 +111,6 @@ class App extends React.Component {
     this.createItemAxios();
   };
 
-  itemSold = event => {
-    console.log("clicked");
-  };
 
   handleChange = event => {
     // console.log(event.target.value);
@@ -126,21 +123,39 @@ class App extends React.Component {
     event.preventDefault();
     axios({
       method: "DELETE",
-      url: `${backendUrl}${event.target.id}`
+      url: `${backendUrl}event/${event.target.id}`
     }).then(deletedEvent => {
       this.getEventsAxios();
     });
   };
 
+  itemSold = event => {
+    console.log("clicked");
+    event.preventDefault();
+    axios({
+      method: "PUT",
+      url: `${backendUrl}update-item/${event.target.id}`,
+      data: {
+          item: this.state.itemName,
+          iDescription: this.state.itemDescription,
+          cost: this.state.itemCost,
+          image: this.state.itemUrl,
+          sold: "false"
+        }
+    }).then(updateItem => {
+      this.getEventsAxios();
+    });
+  };
+
   deleteAxiosItem = event => {
-    // event.preventDefault();
+    event.preventDefault();
     console.log(`${backendUrl}delete-item/${event.target.id}`);
-    // axios({
-    //   method: "DELETE",
-    //   url: `${backendUrl}${event.target.id}`
-    // }).then(deletedItem => {
-    //   this.getEventsAxios();
-    // });
+    axios({
+      method: "DELETE",
+      url: `${backendUrl}delete-item/${event.target.id}`
+    }).then(deletedItem => {
+      this.getEventsAxios();
+    });
   };
 
   render() {

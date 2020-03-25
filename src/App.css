@@ -163,7 +163,7 @@ div.events-container > div:nth-of-type(even) {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 3fr 1fr;
   border: 1px solid lightgray;
-  height: 200px;
+  /* height: 200px;
   min-width: 50vw;
-  max-width: 50vw;
+  max-width: 50vw; */
 }
