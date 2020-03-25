@@ -4,11 +4,13 @@ import "../App.css";
 import Items from "./Items"
 
 const EventDetail = props => {
-  console.log(props.events);
+  console.log(props);
 
   let eventDetail = props.events.find(
     event => event._id === props.match.params.id
   );
+
+  console.log(eventDetail)
 
   // sending event to get items
   let allItems = props.events.map(event => {
@@ -25,7 +27,7 @@ const EventDetail = props => {
         <div>{eventDetail.date}</div>
         <div>{eventDetail.location}</div>
       </div>
-      <Link to='/new-item' className='create-new'>
+      <Link to={`/new-item/${eventDetail._id}`} className='create-new'>
         Add Item
       </Link>
       <div className='event-detail-items'>

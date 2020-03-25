@@ -25,7 +25,6 @@ const CreateItem = props => {
         <div></div>
         <input
           type='submit'
-          // id={props.}
           className='create-new-form-button'
           value='Create Item'
         />

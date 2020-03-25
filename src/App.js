@@ -18,6 +18,7 @@ class App extends React.Component {
       //events is array of events found in api get events call
       // events: [],
       events: [],
+      items: [],
       //create event form variables
       eventSeller: "",
       eventName: "",
@@ -42,8 +43,8 @@ class App extends React.Component {
   }
 
   createEventAxios() {
-    console.log(this.state);
-    console.log(`${backendUrl}new-event`);
+    // console.log(this.state);
+    // console.log(`${backendUrl}new-event`);
     axios({
       method: "POST",
       url: `${backendUrl}new-event`,
@@ -67,13 +68,14 @@ class App extends React.Component {
   }
 
   createItemAxios() {
-    console.log(this.state);
+    console.log(this.state)
+    console.log(this.props.location.pathname.slice(10));
     axios({
       method: "PUT",
       url: `${backendUrl}new-item`,
       data: {
         event: {
-          _id: this.state._id
+          _id: this.props.location.pathname.slice(10)
         },
         item: {
           item: this.state.itemName,
@@ -191,11 +193,12 @@ class App extends React.Component {
           {/* Route to create a new event item (on EventDetails component)*/}
           <Route
             path='/new-item'
-            render={() => (
+            render={(routerProps) => (
               <CreateItem
+                {...routerProps}
                 handleChange={this.handleChange}
                 handleItemSubmit={this.handleItemSubmit}
-                id={this.state.props}
+                id={routerProps.location.pathname}
               />
             )}
           />

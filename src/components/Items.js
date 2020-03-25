@@ -9,22 +9,22 @@ class Items extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: [],
+      eventItems: [],
       backendUrl: backendUrl
      }
   }
   
-  componentDidMount() {
-    this.getItemsAxios();
-  }
+  // componentDidMount() {
+  //   this.getItemsAxios();
+  // }
 
-  getItemsAxios() {
-    backendUrl = `${backendUrl}${this.props._id}`
-    console.log(backendUrl)
-    axios({ method: "GET", url: backendUrl }).then(itemData =>
-      this.setState({ items: itemData.data })
-    );
-  }
+  // getItemsAxios() {
+  //   backendUrl = `${backendUrl}${this.props._id}`
+  //   console.log(backendUrl)
+  //   axios({ method: "GET", url: backendUrl }).then(itemData =>
+  //     this.setState({ eventItems: itemData.data })
+  //   );
+  // }
 
   // need axios call to get item details here
   allItems = props => {
@@ -39,7 +39,7 @@ class Items extends Component {
     })}
 
   render() { 
-    console.log(this.props)
+    // console.log(this.props)
     return (  
     <div>
       {/* <div>{allItems}</div> */}
