@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Link, Switch, Redirect , withRouter} from "react-router-dom";
+import { Route, Link, Switch, Redirect, withRouter } from "react-router-dom";
 import axios from "axios";
 
 import "./App.css";
@@ -36,47 +36,60 @@ class App extends React.Component {
   }
 
   getEventsAxios() {
-    axios({ method: "GET", url: backendUrl })
-    .then(eventData =>
+    axios({ method: "GET", url: backendUrl }).then(eventData =>
       this.setState({ events: eventData.data })
     );
   }
 
-  // createEventAxios() {
-  //   axios({
-  //     method: "POST",
-  //     url: backendUrl,
-  //     data: {
-  //       seller: this.state.eventSeller,
-  //       name: this.state.eventName,
-  // //    date: this.state.eventDate,
-  //       location: this.state.eventLocation
-  //     }
-  //   }).then(newUser => {
-  //     console.log(newUser);
-  //     this.setState(prevState => ({
-  //       users: [...prevState.users, newUser.data]
-  //     }));
-  //   });
-  // }
+  createEventAxios() {
+    console.log(this.state);
+    console.log(`${backendUrl}new-event`);
+    axios({
+      method: "POST",
+      url: `${backendUrl}new-event`,
+      data: {
+        seller: {
+          name: this.state.eventSeller
+        },
+        events: {
+          eDescription: this.state.eventName,
+          //    date: this.state.eventDate,
+          location: this.state.eventLocation,
+          items: []
+        }
+      }
+    }).then(newEvent => {
+      console.log(newEvent);
+      this.setState(prevState => ({
+        events: [...prevState.events, newEvent.data]
+      }));
+    });
+  }
 
-  // createItemAxios() {
-  //     axios({
-  //       method: "POST",
-  //       url: backendUrl,
-  //       data: {
-  //         Name: this.state.itemName,
-  //         Description: this.state.itemDescription,
-  //         Cost: this.state.itemCost,
-  // //      Sold: 'false'
-  //       }
-  //     }).then(newUser => {
-  //       console.log(newUser);
-  //       this.setState(prevState => ({
-  //         users: [...prevState.users, newUser.data]
-  //       }));
-  //     });
-  //   }
+  createItemAxios() {
+    console.log(this.state);
+    axios({
+      method: "PUT",
+      url: `${backendUrl}new-item`,
+      data: {
+        event: {
+          _id: this.state._id
+        },
+        item: {
+          item: this.state.itemName,
+          iDescription: this.state.itemDescription,
+          cost: this.state.itemCost,
+          image: this.state.itemUrl,
+          sold: "false"
+        }
+      }
+    }).then(newItem => {
+      console.log(newItem);
+      this.setState(prevState => ({
+        items: [...prevState.items, newItem.data]
+      }));
+    });
+  }
 
   // handleEventClick = event => {
   //   event.preventDefault();
@@ -85,8 +98,13 @@ class App extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
-    // this.createEventAxios();
+    this.createEventAxios();
+  };
+
+  handleItemSubmit = event => {
+    event.preventDefault();
+    console.log("click item");
+    this.createItemAxios();
   };
 
   handleChange = event => {
@@ -101,7 +119,8 @@ class App extends React.Component {
 
   deleteAxiosEvent = event => {
     event.preventDefault();
-
+    console.log("delete");
+    console.log(`${backendUrl}event/${event.target.id}`)
     axios({
       method: "DELETE",
       url: `${backendUrl}${event.target.id}`
@@ -110,30 +129,20 @@ class App extends React.Component {
     });
   };
 
-  // handleItemSubmit = event => {
-  //   event.preventDefault();
-  //   console.log(this.state);
-  //   // this.createEventAxios();
-  // };
-
-  // handleItemChange = event => {
-  //   console.log(event.target.value);
-  //   this.setState({
-  //     [event.target.name]: event.target.value
-  //   });
-  // };
-
   render() {
     return (
       <div className='App'>
         <Link to='/' className='home'>
-          <p className="title">
-            <p className="e">e</p>
-            <p className="s">s</p>
-            <p className="a">a</p>
-            <p className="l">l</p>
-            <p className="e2">e</p>
-            </p> <span role="img" className="logo" aria-label="logo">🛒</span>
+          <div className='title'>
+            <p className='e'>e</p>
+            <p className='s'>s</p>
+            <p className='a'>a</p>
+            <p className='l'>l</p>
+            <p className='e2'>e</p>
+          </div>
+          <span role='img' className='logo' aria-label='logo'>
+            🛒
+          </span>
         </Link>
         {/* Home component available consistently at top of page */}
         {/* <Route exact path='/' render={props => <Home />} /> */}
@@ -155,7 +164,9 @@ class App extends React.Component {
           <Route
             path='/event/:id'
             render={routerProps => (
-              <EventDetail {...routerProps} events={this.state.events}
+              <EventDetail
+                {...routerProps}
+                events={this.state.events}
                 newItem={this.state.newItem}
                 handleChange={this.handleChange}
                 handleNewTodoSubmit={this.handleSubmit}
@@ -181,15 +192,16 @@ class App extends React.Component {
             render={() => (
               <CreateItem
                 handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit}
+                handleItemSubmit={this.handleItemSubmit}
+                id={this.state.props}
               />
             )}
           />
-          <Route path='/*' render={() => <Redirect to='/' />} />
+          <Route path='/*' render={() => <Redirect to='/event/' />} />
         </Switch>
       </div>
     );
   }
 }
 //need to wrap with Router... mern-lab...
-export default App;
+export default withRouter (App);

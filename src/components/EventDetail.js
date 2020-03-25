@@ -4,14 +4,16 @@ import "../App.css";
 
 const EventDetail = props => {
 
+  console.log(props.events)
+
   let eventDetail =  props.events.find(event => event._id ===
     props.match.params.id) 
 
     return  eventDetail ?  (
     <>
     <div className="event-detail-header">
-      <h2>Event Detail</h2>
-      <div>{eventDetail.eDescription}</div>
+      <h2>{eventDetail.eDescription}</h2>
+      <div>{eventDetail.seller}</div>
       <div>{eventDetail.date}</div>
       <div>{eventDetail.location}</div>
     </div>
