@@ -60,7 +60,7 @@ class App extends React.Component {
         }
       }
     }).then(newEvent => {
-      this.props.history.push(`/event/${newEvent.data._id}`)
+      this.props.history.push(`/event/${newEvent.data._id}`);
       this.setState(prevState => ({
         events: [...prevState.events, newEvent.data]
       }));
@@ -68,7 +68,7 @@ class App extends React.Component {
   }
 
   createItemAxios() {
-    let eventId=this.props.location.pathname.slice(10)
+    let eventId = this.props.location.pathname.slice(10);
     axios({
       method: "PUT",
       url: `${backendUrl}new-item`,
@@ -87,7 +87,7 @@ class App extends React.Component {
     }).then(newItem => {
       console.log(newItem);
       this.getEventsAxios();
-      this.props.history.push(`/event/${eventId}`)
+      this.props.history.push(`/event/${eventId}`);
       // this.setState(prevState => ({
       //   items: [...prevState.items, newItem.data]
       // })
@@ -111,12 +111,13 @@ class App extends React.Component {
     this.createItemAxios();
   };
 
+  itemSold = event => {
+    console.log("clicked");
+  };
+
   handleChange = event => {
     // console.log(event.target.value);
     this.setState({
-      //add name attribute to the form fields
-      //can refactor for generic
-      //study mern-lab
       [event.target.name]: event.target.value
     });
   };
@@ -129,6 +130,17 @@ class App extends React.Component {
     }).then(deletedEvent => {
       this.getEventsAxios();
     });
+  };
+
+  deleteAxiosItem = event => {
+    // event.preventDefault();
+    console.log(`${backendUrl}delete-item/${event.target.id}`);
+    // axios({
+    //   method: "DELETE",
+    //   url: `${backendUrl}${event.target.id}`
+    // }).then(deletedItem => {
+    //   this.getEventsAxios();
+    // });
   };
 
   render() {
@@ -170,8 +182,8 @@ class App extends React.Component {
                 {...routerProps}
                 events={this.state.events}
                 newItem={this.state.newItem}
-                handleChange={this.handleChange}
-                handleNewTodoSubmit={this.handleSubmit}
+                // handleChange={this.handleChange}
+                handleItemDelete={this.deleteAxiosItem}
                 itemSold={this.itemSold}
               />
             )}
@@ -191,7 +203,7 @@ class App extends React.Component {
           {/* Route to create a new event item (on EventDetails component)*/}
           <Route
             path='/new-item'
-            render={(routerProps) => (
+            render={routerProps => (
               <CreateItem
                 {...routerProps}
                 handleChange={this.handleChange}
@@ -207,4 +219,4 @@ class App extends React.Component {
   }
 }
 //need to wrap with Router... mern-lab...
-export default withRouter (App);
+export default withRouter(App);

@@ -10,14 +10,11 @@ const EventDetail = props => {
 
   console.log(eventDetail);
 
-  // sending event to get items... first time this component loads... it will be empty???
-
-
   return eventDetail ? (
     <>
       <div className='event-detail-header'>
         <h2>{eventDetail.eDescription}</h2>
-        <div>{eventDetail.seller}</div>
+        <div>{eventDetail.seller[0].name}</div>
         <div>{eventDetail.date}</div>
         <div>{eventDetail.location}</div>
       </div>
@@ -25,13 +22,16 @@ const EventDetail = props => {
         Add Item
       </Link>
       <div className='event-detail-items'>
-     { eventDetail && eventDetail.items.map(item => (
-      <Item
-        key={item._id}
-        item={item}
-        handleDelete={props.handleItemDelete}
-      />
-     ))}
+        {eventDetail &&
+          eventDetail.items.map(item => (
+            <Item
+              key={item._id}
+              item={item}
+              eventDoc={eventDetail._id}
+              handleItemDelete={props.handleItemDelete}
+              itemSold={props.itemSold}
+            />
+          ))}
       </div>
     </>
   ) : (
