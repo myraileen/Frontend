@@ -60,7 +60,7 @@ class App extends React.Component {
         }
       }
     }).then(newEvent => {
-      console.log(newEvent);
+      this.props.history.push(`/event/${newEvent.data._id}`)
       this.setState(prevState => ({
         events: [...prevState.events, newEvent.data]
       }));
@@ -68,14 +68,13 @@ class App extends React.Component {
   }
 
   createItemAxios() {
-    console.log(this.state)
-    console.log(this.props.location.pathname.slice(10));
+    let eventId=this.props.location.pathname.slice(10)
     axios({
       method: "PUT",
       url: `${backendUrl}new-item`,
       data: {
         event: {
-          _id: this.props.location.pathname.slice(10)
+          _id: eventId
         },
         item: {
           item: this.state.itemName,
@@ -87,11 +86,13 @@ class App extends React.Component {
       }
     }).then(newItem => {
       console.log(newItem);
-      this.setState(prevState => ({
-        items: [...prevState.items, newItem.data]
-      })
-      )
-      this.props.history.push(`/event/${newItem.data._id}`)
+      this.getEventsAxios();
+      this.props.history.push(`/event/${eventId}`)
+      // this.setState(prevState => ({
+      //   items: [...prevState.items, newItem.data]
+      // })
+      // )
+      // this.props.history.push(`/event/${newItem.data._id}`)
     });
   }
 
@@ -107,7 +108,6 @@ class App extends React.Component {
 
   handleItemSubmit = event => {
     event.preventDefault();
-    // console.log("click item");
     this.createItemAxios();
   };
 
@@ -123,8 +123,6 @@ class App extends React.Component {
 
   deleteAxiosEvent = event => {
     event.preventDefault();
-    console.log("delete");
-    console.log(`${backendUrl}event/${event.target.id}`)
     axios({
       method: "DELETE",
       url: `${backendUrl}${event.target.id}`

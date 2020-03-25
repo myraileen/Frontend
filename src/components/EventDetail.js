@@ -1,23 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import Items from "./Items"
+import Item from "./Item";
 
 const EventDetail = props => {
-  console.log(props);
-
   let eventDetail = props.events.find(
     event => event._id === props.match.params.id
   );
 
-  console.log(eventDetail)
+  console.log(eventDetail);
 
-  // sending event to get items
-  let allItems = props.events.map(event => {
-    return (
-      <Items key={event._id} event={event} handleDelete={props.handleItemDelete} />
-    );
-  });
+  // sending event to get items... first time this component loads... it will be empty???
+
 
   return eventDetail ? (
     <>
@@ -31,12 +25,17 @@ const EventDetail = props => {
         Add Item
       </Link>
       <div className='event-detail-items'>
-       {allItems}
+     { eventDetail && eventDetail.items.map(item => (
+      <Item
+        key={item._id}
+        item={item}
+        handleDelete={props.handleItemDelete}
+      />
+     ))}
       </div>
     </>
   ) : (
     <p>loading...</p>
   );
 };
-
 export default EventDetail;

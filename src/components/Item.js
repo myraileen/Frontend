@@ -1,15 +1,20 @@
 import React from "react";
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Item = props => (
-  <div>
-    <p>
-    <Link to={`/event/${props.key}`}>{props.item}: {props.description} {props.cost}</Link>
-    </p>
-    {/* <button id={props.key} onClick={props.handleDelete}>
+const Item = props => {
+  console.log(props.item.item)
+
+  return (
+    <div>
+      <p>
+        <Link to={`/event/${props.key}`}>
+          {props.item.item}: {props.description} {props.cost}
+        </Link>
+      </p>
+      {/* <button id={props.key} onClick={props.handleDelete}>
       Delete
     </button> */}
-  </div>
-);
-
+    </div>
+  );
+};
 export default Item;
