@@ -146,7 +146,7 @@ class App extends React.Component {
       method: "PUT",
       url: `${backendUrl}update-item/${event.target.id}`,
       data: {
-          sold: "false"
+          sold: "true"
         }
     }).then(updateItem => {
       this.getEventsAxios();
