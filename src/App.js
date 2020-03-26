@@ -10,7 +10,8 @@ import CreateItem from "./components/CreateItem";
 import UpdateItem from "./components/UpdateItem";
 
 // const backendUrl = "http://localhost:8080/"
-let backendUrl = process.env.REACT_APP_BACKEND_APP_URL || "http://localhost:8080/";
+let backendUrl = process.env.REACT_APP_BACKEND_APP_URL 
+//|| "http://localhost:8080/";
 
 class App extends React.Component {
   constructor(props) {
@@ -87,7 +88,7 @@ class App extends React.Component {
           iDescription: this.state.itemDescription,
           cost: this.state.itemCost,
           image: this.state.itemUrl,
-          sold: "true"
+          sold: "false"
         }
       }
     }).then(newItem => {
