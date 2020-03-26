@@ -10,7 +10,7 @@ import CreateItem from "./components/CreateItem";
 import UpdateItem from "./components/UpdateItem";
 
 // const backendUrl = "http://localhost:8080/"
-const backendUrl = "http://e-sale-backend.herokuapp.com/";
+let backendUrl = process.env.REACT_APP_BACKEND_APP_URL || "http://localhost:8080/api/users/";
 
 class App extends React.Component {
   constructor(props) {
