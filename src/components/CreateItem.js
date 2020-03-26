@@ -18,7 +18,7 @@ const CreateItem = props => {
         <input type='text' name='itemDescription' placeholder="Description" required/>
 
         <label className='itemCost'>Cost:</label>
-        <input type='text' name='itemCost' placeholder="Cost" required/>
+        <input type='number' name='itemCost' placeholder="Cost" required/>
 
         <label className='itemUrl'>Image URL:</label>
         <input type='text' name='itemUrl' placeholder="Item URL" />

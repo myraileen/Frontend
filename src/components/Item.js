@@ -3,15 +3,18 @@ import { Link } from "react-router-dom";
 
 const Item = props => {
   console.log(props);
+  console.log(props.item);
 
   return (
     <div className='item'>
-      <Link to={`/event/${props.key}`}>
-        {props.item.item}: {props.description} {props.cost}
+      <Link to={`/update-item/${props.id}`} item={props.item.item}>
+        {props.item.item}
       </Link>
-      {/* <button id={props.key} onClick={}>
-      Delete
-    </button> */}
+      <div>
+          <img alt={props.item.item} src={props.item.image} />
+        <p>{props.item.iDescription} </p>
+        <p>${props.item.cost}</p>
+      </div>
       <div className='controls'>
         <button
           id={`${props.eventDoc}/${props.item._id}`}

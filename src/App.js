@@ -8,6 +8,7 @@ import Events from "./components/Events";
 import EventDetail from "./components/EventDetail";
 import CreateEvent from "./components/CreateEvent";
 import CreateItem from "./components/CreateItem";
+import UpdateItem from "./components/UpdateItem";
 
 const backendUrl = "http://localhost:8080/";
 
@@ -223,6 +224,19 @@ class App extends React.Component {
                 {...routerProps}
                 handleChange={this.handleChange}
                 handleItemSubmit={this.handleItemSubmit}
+                id={routerProps.location.pathname}
+              />
+            )}
+          />
+
+           {/* Route to update item (on EventDetails component)*/}
+           <Route
+            path='/update-item/:id'
+            render={routerProps => (
+              <UpdateItem
+                {...routerProps}
+                handleChange={this.handleChange}
+                handleItemUpdate={this.handleItemUpdate}
                 id={routerProps.location.pathname}
               />
             )}

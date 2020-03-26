@@ -17,6 +17,7 @@ const EventDetail = props => {
         <div>{eventDetail.seller[0].name}</div>
         <div>{eventDetail.date}</div>
         <div>{eventDetail.location}</div>
+        <div>{eventDetail.image}</div>
       </div>
       <Link to={`/new-item/${eventDetail._id}`} className='create-new'>
         Add Item
@@ -26,7 +27,9 @@ const EventDetail = props => {
           eventDetail.items.map(item => (
             <Item
               key={item._id}
+              id={item._id}
               item={item}
+              itemName={item.item}
               eventDoc={eventDetail._id}
               handleItemDelete={props.handleItemDelete}
               itemSold={props.itemSold}
