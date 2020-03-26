@@ -250,7 +250,7 @@ div.events-container > div:nth-of-type(even) {
   text-align: right;
   font-size: medium;
   font-weight: bold;
-  /* background-color: rgb(186, 201, 178); */
+  background-color: rgb(186, 201, 178);
   border-radius: 4px;
   margin-top: 3%;
 }
