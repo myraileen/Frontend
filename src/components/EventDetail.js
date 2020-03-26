@@ -15,7 +15,7 @@ const EventDetail = props => {
       <div className='event-detail-header'>
         <h2>{eventDetail.eDescription}</h2>
         <div>{eventDetail.seller[0].name}</div>
-        <div>{eventDetail.date}</div>
+        {/* <div>{eventDetail.date}</div> */}
         <div>{eventDetail.location}</div>
         <div>{eventDetail.image}</div>
       </div>
