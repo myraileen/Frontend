@@ -9,7 +9,7 @@ const Item = props => {
   // // console.log(currentSoldValue)
 
   return (
-    <div className={`item`}>
+    <div className={`item-${props.item.sold}`}>
       {/* <div className={`item-${props.item.sold}`}></div> */}
       {/* className={currentSoldValue} */}
       <Link to={`/update-item/${props.id}`} className='item-name' item={props}>
