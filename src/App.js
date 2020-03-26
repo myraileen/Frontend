@@ -9,7 +9,8 @@ import CreateEvent from "./components/CreateEvent";
 import CreateItem from "./components/CreateItem";
 import UpdateItem from "./components/UpdateItem";
 
-const backendUrl = "http://localhost:8080/";
+// const backendUrl = "http://localhost:8080/"
+const backendUrl = "http://e-sale-backend.herokuapp.com/";
 
 class App extends React.Component {
   constructor(props) {
@@ -86,7 +87,7 @@ class App extends React.Component {
           iDescription: this.state.itemDescription,
           cost: this.state.itemCost,
           image: this.state.itemUrl,
-          sold: "false"
+          sold: "true"
         }
       }
     }).then(newItem => {
