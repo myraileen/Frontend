@@ -7,23 +7,21 @@ const Item = props => {
 
   return (
     <div className='item'>
-      <Link to={`/update-item/${props.id}`} item={props.item.item}>
+      <Link to={`/update-item/${props.id}`} className='item-name' item={props}>
         {props.item.item}
       </Link>
-      <div>
-          <img alt={props.item.item} src={props.item.image} />
-        <p>{props.item.iDescription} </p>
-        <p>${props.item.cost}</p>
-      </div>
-      <div className='controls'>
-        <button
+      <img alt={props.item.item} src={props.item.image} />
+      <div className="cost" >
+      <span >${props.item.cost}</span><button
           id={`${props.eventDoc}/${props.item._id}`}
           className='sold-button'
           // id={props.event._id}
           onClick={props.itemSold}
         >
           $
-        </button>
+        </button></div>
+      <span className='description'>{props.item.iDescription}</span>
+        
 
         <button
           id={`${props.eventDoc}/${props.item._id}`}
@@ -33,7 +31,6 @@ const Item = props => {
           -
         </button>
       </div>
-    </div>
   );
 };
 export default Item;
