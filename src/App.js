@@ -3,7 +3,6 @@ import { Route, Link, Switch, Redirect, withRouter } from "react-router-dom";
 import axios from "axios";
 
 import "./App.css";
-// import Home from "./components/Home";
 import Events from "./components/Events";
 import EventDetail from "./components/EventDetail";
 import CreateEvent from "./components/CreateEvent";
@@ -29,7 +28,12 @@ class App extends React.Component {
       itemName: "",
       itemDescription: "",
       itemCost: "",
-      itemSold: ""
+      itemSold: "",
+      //update item form variables
+      itemUpdateName: "",
+      itemUpdateDescription: "",
+      itemUpdateCost: "",
+      itemUpdateSold: ""
     };
   }
 
@@ -112,7 +116,6 @@ class App extends React.Component {
     this.createItemAxios();
   };
 
-
   handleChange = event => {
     // console.log(event.target.value);
     this.setState({
@@ -121,6 +124,7 @@ class App extends React.Component {
   };
 
   deleteAxiosEvent = event => {
+    console.log(`${backendUrl}event/${event.target.id}`)
     event.preventDefault();
     axios({
       method: "DELETE",
@@ -130,23 +134,44 @@ class App extends React.Component {
     });
   };
 
+  //still a problem to pass props from Item component... once solved, need to change "date:sold" property to the prop value
   itemSold = event => {
-    console.log("clicked");
+    console.log(this.state.itemName);
+    console.log(this.state);
+    console.log(`${backendUrl}update-item/${event.target.id}`)
+
     event.preventDefault();
     axios({
       method: "PUT",
       url: `${backendUrl}update-item/${event.target.id}`,
       data: {
-          item: this.state.itemName,
-          iDescription: this.state.itemDescription,
-          cost: this.state.itemCost,
-          image: this.state.itemUrl,
           sold: "false"
         }
     }).then(updateItem => {
       this.getEventsAxios();
     });
   };
+
+  // If we can get props to pass from the UpdateItem component... we know this axios update item function WILL WORK... 
+  // handleItemUpdate = event => {
+  //   console.log(this.state.itemName);
+  //   console.log(this.state);
+  //   console.log(`${backendUrl}update-item/${event.target.id}`)
+
+  //   event.preventDefault();
+  //   axios({
+  //     method: "PUT",
+  //     url: `${backendUrl}update-item/${event.target.id}`,
+  //     data: {
+  //         item: this.state.itemName,
+  //         iDescription: this.state.itemDescription,
+  //         cost: this.state.itemCost,
+  //         image: this.state.itemUrl
+  //       }
+  //   }).then(updateItem => {
+  //     this.getEventsAxios();
+  //   });
+  // };
 
   deleteAxiosItem = event => {
     event.preventDefault();

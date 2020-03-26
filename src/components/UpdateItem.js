@@ -14,21 +14,21 @@ const UpdateItem = props => {
         onSubmit={props.handleItemUpdate}
       >
         <label className='itemName'>Item:</label>
-        <input type='text' name='itemName' value='props.' placeholder='Item' required />
+        <input type='text' name='itemUpdateName' value='props.' placeholder='Item' required />
 
         <label className='itemDescription'>Description:</label>
         <input
           type='text'
-          name='itemDescription'
+          name='itemUpdateDescription'
           placeholder='Description'
           required
         />
 
         <label className='itemCost'>Cost:</label>
-        <input type='text' name='itemCost' placeholder='Cost' required />
+        <input type='text' name='itemUpdateCost' placeholder='Cost' required />
 
         <label className='itemUrl'>Image URL:</label>
-        <input type='text' name='itemUrl' placeholder='Item URL' />
+        <input type='text' name='itemUpdateUrl' placeholder='Item URL' />
         <div></div>
         <input
           type='submit'

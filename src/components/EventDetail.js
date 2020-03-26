@@ -8,7 +8,7 @@ const EventDetail = props => {
     event => event._id === props.match.params.id
   );
 
-  console.log(eventDetail);
+  // console.log(eventDetail);
 
   return eventDetail ? (
     <>
