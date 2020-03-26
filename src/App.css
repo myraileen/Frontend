@@ -140,19 +140,19 @@ div.events-container > div:nth-of-type(even) {
 }
 
 .delete-button {
-  align-self: flex-end;
+  align-self: flex-start;
   text-align: center;
   text-decoration: none;
   font-weight: bold;
   font-size: medium;
-  width: 30px;
-  border-radius: 50px;
+  width: 25px;
+  border-radius: 25px;
   background-color: rgba(218, 53, 35, 0.906);
   color: white;
   border-bottom: rgb(206, 52, 5) 2px solid;
   border-right: rgb(100, 10, 0) 2px solid;
-  margin: 5px;
-  padding: 5px;
+  margin: 3px;
+  padding: 3px;
 }
 
 .sold-button {
@@ -161,62 +161,43 @@ div.events-container > div:nth-of-type(even) {
   text-decoration: none;
   font-weight: bold;
   font-size: medium;
-  width: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 50px;
   background-color: rgba(6, 133, 84, 0.906);
   color: white;
   border-bottom: rgb(4, 101, 4) 2px solid;
   border-right: rgb(1, 53, 20) 2px solid;
-  margin: 5px;
-  padding: 5px;
+  margin: 3px;
+  padding: 3px;
 }
+
 .event-detail-items {
   display:inline-flex;
   flex-wrap: wrap;
+  align-content: flex-start;
 }
+.event-detail-items > div {
+  border: 1pt solid rgb(7, 7, 7);}
+  
 .item-true {
   display: grid;
   flex-direction: column;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 3fr 1fr 1fr 1fr;
+  grid-template-rows: 30px 148px 40px 1fr 30px;
   border: 1px solid rgb(141, 136, 136);
   border-bottom: rgb(66, 62, 60) 2px solid;
   border-radius: 4%;
   font-size: medium;
-  max-height: 500px;
-  min-width: 10vw;
-  max-width: 20vw;
-  padding: 2%;
-  margin: 1%;
+  height: 350px;
+  width: 150px;
+  padding: 8px;
+  margin: 4px;
   background-color: lightgray;
 }
 
-.item-false {
-  display: grid;
-  flex-direction: column;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 3fr 1fr 1fr 1fr;
-  border: 1px solid rgb(141, 136, 136);
-  border-bottom: rgb(66, 62, 60) 2px solid;
-  border-radius: 4%;
-  font-size: medium;
-  max-height: 500px;
-  min-width: 10vw;
-  max-width: 20vw;
-  padding: 2%;
-  margin: 1%;
-}
-
 .item-true > .item-name {
-  font-size: large;
-  font-weight: bold;
-  text-decoration: none;
-  color: black;
-  margin-bottom: 3%;
-}
-
-.item-false > .item-name {
-  font-size: large;
+  font-size: medium;
   font-weight: bold;
   text-decoration: none;
   color: black;
@@ -224,51 +205,70 @@ div.events-container > div:nth-of-type(even) {
 }
 
 .item-true > img {
-  float: right;
   border-radius: 4%;
-  max-width: 20vw;
-  max-height: 180px;
-}
-
-.item-false > img {
-  float: right;
-  border-radius: 4%;
-  max-width: 20vw;
-  max-height: 180px;
+  max-width: 148px;
+  max-height: 148px;
 }
 
 .item-true > .cost {
   text-align: right;
-  font-size: medium;
+  margin-top: 8px;
+  font-size: small;
   font-weight: bold;
   background-color: rgb(152, 155, 152);
   border-radius: 4px;
-  margin-top: 3%;
+}
+
+.item-true > .description {
+  max-width: 148px;
+  font-size: small;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+/* -------------------------------- */
+
+.item-false {
+  display: grid;
+  flex-direction: column;
+  grid-template-columns: 1fr;
+  grid-template-rows: 30px 148px 40px 1fr 30px;
+  border: 1px solid rgb(141, 136, 136);
+  border-bottom: rgb(66, 62, 60) 2px solid;
+  border-radius: 4%;
+  font-size: medium;
+  height: 350px;
+  width: 150px;
+  padding: 8px;
+  margin: 4px;
+}
+
+.item-false > .item-name {
+  font-size: medium;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 3%;
+}
+
+.item-false > img {
+  border-radius: 4%;
+  max-width: 148px;
+  max-height: 148px;
 }
 
 .item-false > .cost {
   text-align: right;
-  font-size: medium;
+  margin-top: 8px;
+  font-size: small;
   font-weight: bold;
   background-color: rgb(186, 201, 178);
   border-radius: 4px;
-  margin-top: 3%;
-}
-
-.item-true > .description {
-  scroll-behavior: auto;
-  max-width: 20vw;
-  font-size: small;
-  max-height: 30vh;
 }
 
 .item-false > .description {
-  scroll-behavior: auto;
-  max-width: 20vw;
+  max-width: 148px;
   font-size: small;
-  max-height: 30vh;
+  max-height: 120px;
+  overflow-y: auto;
 }
-
-
-
-

@@ -12,6 +12,7 @@ const Item = props => {
     <div className={`item-${props.item.sold}`}>
       {/* <div className={`item-${props.item.sold}`}></div> */}
       {/* className={currentSoldValue} */}
+
       <Link to={`/update-item/${props.id}`} className='item-name' item={props}>
         {props.item.item}
       </Link>
@@ -27,9 +28,10 @@ const Item = props => {
         >
           $
         </button>
+
       </div>
 
-      <span className='description'>{props.item.iDescription}</span>
+      <div className='description'>{props.item.iDescription}</div>
       <button
         id={`${props.eventDoc}/${props.item._id}`}
         className='delete-button'
