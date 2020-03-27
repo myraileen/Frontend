@@ -90,7 +90,7 @@ Based on the initial logic defined in the previous sections following is a break
 * show location with map api
 
 ### Development approach
-Having agreed on the app concept, we collaborated on screen mocks and captured user stories and a roughed out data and component model wireframe around an MVP. To get started, Myra created a 'frontend' respository and Patrick created a 'backend' respository. Over the weekend, we respectively worked on in our respective repositories to establish the basic installation dependencies, file structures and code. We did paired programming daily to coordinate developement effort to deliver the respective backend and frontend touchpoints. 
+Having agreed on the app concept, we collaborated on screen mocks and captured user stories and a roughed out data and component model wireframe around an MVP. To get started, Myra created a 'frontend' respository and Patrick created a 'backend' respository. Over the weekend, we  worked on in our respective repositories to establish the basic installation dependencies, file structures and code. We did paired programming daily to coordinate developement effort to deliver the connecting backend and frontend touchpoints. 
 
 ## Deployment
 The application's backend was deployed with Heroku using MLab MongoDB and the frontend was deployed with Heroku using mars buildpack.
