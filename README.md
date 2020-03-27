@@ -60,8 +60,8 @@ This app lets people create online store to list items for sale. Items can be ma
 
 ## Backend DB Transactions
 
-| METHOD | Description |
-| --- | :---: | 
+| METHOD | Route | Description |
+| --- | :---: | :---: | 
 | GET | ('/') | Get all events and related items and the seller |
 | POST | ("/new-event") | Add a new event with the seller attached to that event. The new-event post creates a new event and a new seller and relates each to the other. |
 | PUT | ('/new-item' | Add a new item and attached it to the event
@@ -74,7 +74,7 @@ This app lets people create online store to list items for sale. Items can be ma
 Based on the initial logic defined in the previous sections following is a breakdown of stateless/stateful components. 
 
 | Component | Description | 
-| --- | :---: | :---: |
+| --- |  :---: |
 | **App.js** | this component is the routing component and hosts the API calls. |
 | **Events.js** | this component recieves an array of events (stores) and maps each one to the Event component. |
 | **Event.js** | this component creates an event from its parent Events component. A DELETE call can be fired from this component to removed an event from the backend api. |
