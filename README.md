@@ -23,7 +23,8 @@ This app lets people create online store to list items for sale. Items can be ma
 ### Screen Mocks
 * [home/landing page](https://wireframe.cc/Bs9KFt)
 * [event page](https://wireframe.cc/RHbhrj)
-* ![ERD](./planning/ERD.png)
+* ERD  
+  ![ERD](./planning/ERD.png)
 
 ### MVP
 * as a user, I can create a sale event
@@ -58,28 +59,31 @@ This app lets people create online store to list items for sale. Items can be ma
 * as a seller, I can mark an item as sold 
 
 ## Backend DB Transactions
-* get('/') - //Get all events and related items and the seller
-* post("/new-event") - //Add a new event with the seller attached to that event
-* put('/new-item' - //Add a new item and attached it to the event
-* delete('/event/:eventDeleteID') - //Delete an event
-* delete('/delete-item/:eventId/:itemId') - //Delete an item and remove it from the schema router
-* put('/update-item/:itemId') - //Update an item 
 
-
+| METHOD | Route | Description |
+| --- | :---: | :---: |
+| GET | ('/') | Get all events and related items and the seller |
+| POST | ("/new-event") | Add a new event with the seller attached to that event. The new-event post creates a new event and a new seller and relates each to the other. |
+| PUT | ('/new-item' | Add a new item and attached it to the event
+| DELETE | ('/event/:eventDeleteID') | Delete an event |
+| DELETE | ('/delete-item/:eventId/:itemId') | Delete an item and remove it from the schema router. Here also, we are removing the item's id from the event document.  |
+| PUT | ('/update-item/:itemId') | Update an item  |
+  
 
 ## Components
 Based on the initial logic defined in the previous sections following is a breakdown of stateless/stateful components. 
 
 | Component | Description | 
-| --- | :---: |
+| --- | :---: | :---: |
 | **App.js** | this component is the routing component and hosts the API calls. |
 | **Events.js** | this component recieves an array of events (stores) and maps each one to the Event component. |
 | **Event.js** | this component creates an event from its parent Events component. A DELETE call can be fired from this component to removed an event from the backend api. |
 | **EventDetails.js** | this component displays a single event and the children Item components. There are inputs on this page to add, remove and update items. (PUT, DELETE) |
-| **Item.js** | child component to EventDetails as mentioned in previous item. |
+| **Item.js** | child component to EventDetails as mentioned in previous item. This component can update an item's sold property by forwarding a PUT statement to the backend API |
 | **CreateEvent.js** | this component hosts the form to create new events. The CreateEvent component sends a POST call to the backend api to create a new event. |
 | **CreateItem.js** | this component hosts the form to create new items. The CreateItem component sends a PUT cal to the backend api to update an event by pushing the added item into the events item array. |
-| **UpdateItems.js** | this component (while not functional in the first release) was intended to update an item. |
+| **UpdateItems.js** | this component (while not functional in the first release) was intended to update an item's properties. |
+  
 
 ### Stretch
 * bid/give feedback on items
