@@ -123,9 +123,24 @@ class App extends React.Component {
     });
   };
 
-  //still a problem to pass props from Item component... once solved, need to change "date:sold" property to the prop value
+  //this updates the sold value on an item (clicking on green $ button on event detail page)
   itemSold = event => {
-    console.log(this.state.itemSold);
+    let newSoldValue = event.target.getAttribute('soldValue')
+    event.preventDefault();
+    axios({
+      method: "PUT",
+      url: `${backendUrl}update-item/${event.target.id}`,
+      data: {
+          sold: newSoldValue
+        }
+    }).then(updateItem => {
+      this.getEventsAxios();
+    });
+  };
+
+  // If we can get props to pass from the UpdateItem component... we know this axios update item function WILL WORK... 
+  handleItemUpdate = event => {
+    console.log(this.state.itemName);
     console.log(this.state);
     console.log(`${backendUrl}update-item/${event.target.id}`)
 
@@ -134,33 +149,15 @@ class App extends React.Component {
       method: "PUT",
       url: `${backendUrl}update-item/${event.target.id}`,
       data: {
-          sold: "true"
+          item: this.state.itemName,
+          iDescription: this.state.itemDescription,
+          cost: this.state.itemCost,
+          image: this.state.itemUrl
         }
     }).then(updateItem => {
       this.getEventsAxios();
     });
   };
-
-  // If we can get props to pass from the UpdateItem component... we know this axios update item function WILL WORK... 
-  // handleItemUpdate = event => {
-  //   console.log(this.state.itemName);
-  //   console.log(this.state);
-  //   console.log(`${backendUrl}update-item/${event.target.id}`)
-
-  //   event.preventDefault();
-  //   axios({
-  //     method: "PUT",
-  //     url: `${backendUrl}update-item/${event.target.id}`,
-  //     data: {
-  //         item: this.state.itemName,
-  //         iDescription: this.state.itemDescription,
-  //         cost: this.state.itemCost,
-  //         image: this.state.itemUrl
-  //       }
-  //   }).then(updateItem => {
-  //     this.getEventsAxios();
-  //   });
-  // };
 
   deleteAxiosItem = event => {
     event.preventDefault();
@@ -257,5 +254,5 @@ class App extends React.Component {
     );
   }
 }
-
+//need to wrap with Router... mern-lab...
 export default withRouter(App);

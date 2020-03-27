@@ -3,7 +3,9 @@ import "../App.css";
 
 const UpdateItem = props => {
   console.log(props);
-  let itemDetail = props;
+
+  let itemDetail = props
+  console.log(itemDetail)
 
   return itemDetail ? (
     <div>
@@ -14,7 +16,7 @@ const UpdateItem = props => {
         onSubmit={props.handleItemUpdate}
       >
         <label className='itemName'>Item:</label>
-        <input type='text' name='itemUpdateName' value='props.' placeholder='Item' required />
+        <input type='text' name='itemUpdateName' value={itemDetail.name} placeholder='Item' required />
 
         <label className='itemDescription'>Description:</label>
         <input
