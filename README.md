@@ -19,6 +19,12 @@ This app lets people create online store to list items for sale. Items can be ma
 * Frontend: React, React-router, React-router-dom, axios
 
 ## Wireframe
+
+### Screen Mocks
+* [home/landing page](https://wireframe.cc/Bs9KFt)
+* [event page](https://wireframe.cc/RHbhrj)
+* ![ERD](./ERD.png)
+
 ### MVP
 * as a user, I can create a sale event
     - event description
@@ -45,33 +51,21 @@ This app lets people create online store to list items for sale. Items can be ma
       * /event
       * /event/item
 
-## Screen Mocks
-* [home/landing page](https://wireframe.cc/Bs9KFt)
-* [event page](https://wireframe.cc/RHbhrj)
-* ERD
-
 ## User Stories
 * as a seller, I can create (update/delete) a sale event (description, locaiton, date)
 * as a seller, I can create (update/delete) an item for sale
 * as a seller, I can add items to sell to my event
-* as a seller, I can mark an item as sold (so it doesn't appear anymore)
+* as a seller, I can mark an item as sold 
 
 ## Backend DB Transactions
-* app load - / - get all events
-* event click - /event/:id - GET one event object (all item)
-* add event - /event/:id - POST a single event document... no items... (initially - create user... eventually, maybe can make referential)
-* add item to event - /event/:id - PUT to update event doc by pushing new item into the docs item array
+* get('/') - //Get all events and related items and the seller
+* post("/new-event") - //Add a new event with the seller attached to that event
+* put('/new-item' - //Add a new item and attached it to the event
+* delete('/event/:eventDeleteID') - //Delete an event
+* delete('/delete-item/:eventId/:itemId') - //Delete an item and remove it from the schema router
+* put('/update-item/:itemId') - //Update an item 
 
-* update and item (mark it sold/boolean... or cost) - PUT... against this path /event/:948209event86290485/:02948item5904286
 
-* POST - add events, sellers and items
-* PUT event - add items to an events array
-* PUT item - update sold property
-* DELETE item by ID
-* DELETE event by ID
-
-stretch - grow the below MVP model into a referential model by user docID
-* GET - find by seller name... 
 
 ## Components
 Based on the initial logic defined in the previous sections following is a breakdown of stateless/stateful components. 
@@ -98,7 +92,8 @@ Having agreed on the app concept, we collaborated on screen mocks and captured u
 The application's backend was deployed with Heroku using MLab MongoDB and the frontend was deployed with Heroku using mars buildpack.
 
 ### Issue and Resolutions
-Passing props to state was more than once a hurdle on this project. Unresolved in the app is passing the sold (boolean) across the App, EventDetail and Item components. Similarly, it is an unresolved issue to pass the item values from the EventDetails to the UpdateItem component. 
+Passing props to state was more than once a hurdle on this project. Unresolved in the app is passing the item values from the EventDetails to the UpdateItem component.
+On the backend, the promise concept and managing synchronicity is challenging: for example, the seedfile routine does a basic loading, but to build it out further would require more sophistication.
 
 
 
