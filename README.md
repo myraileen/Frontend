@@ -60,8 +60,8 @@ This app lets people create online store to list items for sale. Items can be ma
 
 ## Backend DB Transactions
 
-| METHOD | Route | Description |
-| --- | :---: | :---: |
+| METHOD | Description |
+| --- | :---: | 
 | GET | ('/') | Get all events and related items and the seller |
 | POST | ("/new-event") | Add a new event with the seller attached to that event. The new-event post creates a new event and a new seller and relates each to the other. |
 | PUT | ('/new-item' | Add a new item and attached it to the event
