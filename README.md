@@ -9,7 +9,10 @@ This app lets people create online store to list items for sale. Items can be ma
 ## Repositories
 * [Frontend](https://github.com/myraileen/Frontend)
 * [Backend](https://github.com/mpmrjd2020/Backend)
-* [Deployment]()
+
+## Deployments
+* [Frontend](https://e-sale-frontend.herokuapp.com/)
+* [Backend](https://e-sale-backend.herokuapp.com/)
 
 ## Dependencies
 * Backend: Node, Express Mongoose, cors
