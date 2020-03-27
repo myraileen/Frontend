@@ -4,7 +4,7 @@
 This app lets people create online store to list items for sale. Items can be marked as sold and deleted. For MVP the focus was from a seller/store owner role only whereby the store owner can manage online stores and items for sale.
 
 ## Planning
-* [Planning](./Planning/ProjectProposal.md)
+* [Planning](https://github.com/myraileen/Frontend/blob/master/planning/ProjectProposal.md)
 
 ## Repositories
 * [Frontend](https://github.com/myraileen/Frontend)
