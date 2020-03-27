@@ -23,7 +23,7 @@ This app lets people create online store to list items for sale. Items can be ma
 ### Screen Mocks
 * [home/landing page](https://wireframe.cc/Bs9KFt)
 * [event page](https://wireframe.cc/RHbhrj)
-* ![ERD](./ERD.png)
+* ![ERD](./planning/ERD.png)
 
 ### MVP
 * as a user, I can create a sale event
