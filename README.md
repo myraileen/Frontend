@@ -40,10 +40,10 @@ This app lets people create online store to list items for sale. Items can be ma
       * seller
       * event
       * items
-* react router routes would include: 
-      * /home (list of events)
+* react router routes  include: 
+      * /(home) (list of events)
       * /event
-      * /item
+      * /event/item
 
 ## Screen Mocks
 * [home/landing page](https://wireframe.cc/Bs9KFt)
@@ -87,7 +87,6 @@ Based on the initial logic defined in the previous sections following is a break
 | **CreateItem.js** | this component hosts the form to create new items. The CreateItem component sends a PUT cal to the backend api to update an event by pushing the added item into the events item array. |
 | **UpdateItems.js** | this component (while not functional in the first release) was intended to update an item. |
 
-
 ### Stretch
 * bid/give feedback on items
 * show location with map api
@@ -95,6 +94,8 @@ Based on the initial logic defined in the previous sections following is a break
 ### Development approach
 Having agreed on the app concept, we collaborated on screen mocks and captured user stories and a roughed out data and component model wireframe around an MVP. To get started, Myra created a 'frontend' respository and Patrick created a 'backend' respository. Over the weekend, we respectively worked on in our respective repositories to establish the basic installation dependencies, file structures and code. We did paired programming daily to coordinate developement effort to deliver the respective backend and frontend touchpoints. 
 
+## Deployment
+The application's backend was deployed with Heroku using MLab MongoDB and the frontend was deployed with Heroku using mars buildpack.
 
 ### Issue and Resolutions
 Passing props to state was more than once a hurdle on this project. Unresolved in the app is passing the sold (boolean) across the App, EventDetail and Item components. Similarly, it is an unresolved issue to pass the item values from the EventDetails to the UpdateItem component. 
