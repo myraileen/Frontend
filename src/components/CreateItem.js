@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 
 const CreateItem = props => {
-      console.log(props)
+  
   return (
     <div>
       <h2>New Item</h2>

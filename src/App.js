@@ -19,7 +19,6 @@ class App extends React.Component {
       //events is array of events found in api get events call
       // events: [],
       events: [],
-      items: [],
       //create event form variables
       eventSeller: "",
       eventName: "",
@@ -91,21 +90,10 @@ class App extends React.Component {
         }
       }
     }).then(newItem => {
-      console.log(newItem);
       this.getEventsAxios();
       this.props.history.push(`/event/${eventId}`);
-      // this.setState(prevState => ({
-      //   items: [...prevState.items, newItem.data]
-      // })
-      // )
-      // this.props.history.push(`/event/${newItem.data._id}`)
     });
   }
-
-  // handleEventClick = event => {
-  //   event.preventDefault();
-  //   console.log("clicked event");
-  // };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -137,7 +125,7 @@ class App extends React.Component {
 
   //still a problem to pass props from Item component... once solved, need to change "date:sold" property to the prop value
   itemSold = event => {
-    console.log(this.state.itemName);
+    console.log(this.state.itemSold);
     console.log(this.state);
     console.log(`${backendUrl}update-item/${event.target.id}`)
 
@@ -176,7 +164,6 @@ class App extends React.Component {
 
   deleteAxiosItem = event => {
     event.preventDefault();
-    console.log(`${backendUrl}delete-item/${event.target.id}`);
     axios({
       method: "DELETE",
       url: `${backendUrl}delete-item/${event.target.id}`
@@ -200,8 +187,6 @@ class App extends React.Component {
             🛒
           </span>
         </Link>
-        {/* Home component available consistently at top of page */}
-        {/* <Route exact path='/' render={props => <Home />} /> */}
 
         {/* create an Event (row component) for each event in dataset */}
         <Switch>
@@ -224,7 +209,6 @@ class App extends React.Component {
                 {...routerProps}
                 events={this.state.events}
                 newItem={this.state.newItem}
-                // handleChange={this.handleChange}
                 handleItemDelete={this.deleteAxiosItem}
                 itemSold={this.itemSold}
               />
@@ -273,5 +257,5 @@ class App extends React.Component {
     );
   }
 }
-//need to wrap with Router... mern-lab...
+
 export default withRouter(App);

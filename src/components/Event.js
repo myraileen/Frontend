@@ -13,12 +13,9 @@ const Event = props => {
         -
       </button>
       <Link to={`/event/${props.event._id}`} className='event-row'>
-        {/* {props.event.date}:  */}
         {props.event.eDescription}
-        {/* {props.event.location} */}
       </Link>
 
-      {/* <Items items={props.items} /> */}
     </div>
   );
 };

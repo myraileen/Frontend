@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Item = props => {
-  // console.log(props);
+  console.log(props);
   // console.log(props.item.sold);
 
   // let currentSoldValue = !props.item.sold ? "true" : "false"

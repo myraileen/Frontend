@@ -1,8 +1,3 @@
-* {
-  /* border:1pt solid rgb(221, 221, 220); */
-  /* background-color: rgba(244, 227, 196, 0.735); */
-}
-
 .App {
   display: flex;
   background-color: rgb(255, 255, 254);
@@ -126,7 +121,7 @@ div.events-container > div:nth-of-type(even) {
   margin: 3%;
   text-align: right;
   padding-right: 5px;
-  line-height: 40px;
+  line-height: 25px;
 }
 
 .create-new-form-button {
@@ -135,6 +130,7 @@ div.events-container > div:nth-of-type(even) {
   text-decoration: none;
   font-weight: bold;
   font-size: medium;
+  width: 60%;
   padding: 3px;
   border-radius: 4px;
   background-color: mediumseagreen;
@@ -184,6 +180,7 @@ div.events-container > div:nth-of-type(even) {
   flex-wrap: wrap;
   align-content: flex-start;
 }
+
 .event-detail-items > div {
   border: 1pt solid rgb(7, 7, 7);}
   

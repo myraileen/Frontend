@@ -17,9 +17,6 @@ const CreateEvent = props => {
         <label className='eventName'>Store Name:</label>
         <input type='text' name='eventName' placeholder="Event Name" required/>
 
-        {/* <label className='eventDate'>Date:</label>
-        <input type='text' name='eventDate' /> */}
-
         <label className='eventLocation'>Location:</label>
         <input type='text' name='eventLocation' placeholder="Location" required/>
         <div></div>
