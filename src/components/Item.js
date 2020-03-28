@@ -11,8 +11,9 @@ const Item = props => {
   return (
     <div className={`item-${props.item.sold}`}>
 
+{/* refactor from a link to a button so object can be passed to the UpdateItem component... or loop through the state events and find item id that we want */}
       <Link 
-        to={`/update-item/${props.id}`} 
+        to={`/update-item/${props.eventDoc}/${props.id}`} 
         updateItem={props}
         className='item-name' 
         item={props}>

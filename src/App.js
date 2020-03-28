@@ -143,7 +143,7 @@ class App extends React.Component {
     console.log(this.state.itemName);
     console.log(this.state);
     console.log(`${backendUrl}update-item/${event.target.id}`)
-
+    console.log(this.state.updateItem)
     event.preventDefault();
     axios({
       method: "PUT",
@@ -238,12 +238,14 @@ class App extends React.Component {
 
            {/* Route to update item (on EventDetails component)*/}
            <Route
-            path='/update-item/:id'
+            path='/update-item/:eventId/:itemId'
             render={routerProps => (
               <UpdateItem
                 {...routerProps}
                 handleChange={this.handleChange}
                 handleItemUpdate={this.handleItemUpdate}
+                allEvents={this.state.events}
+                updateItem={this.state}
                 id={routerProps.location.pathname}
               />
             )}
