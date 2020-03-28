@@ -26,8 +26,7 @@ const UpdateItem = props => {
         <input
           type='text'
           name='itemUpdateName'
-          placeholder='Item'
-          value={clickedItem.item}
+          defaultValue={clickedItem.item}
           required
         />
 
@@ -35,8 +34,7 @@ const UpdateItem = props => {
         <input
           type='text'
           name='itemUpdateDescription'
-          placeholder='Description'
-          value={clickedItem.iDescription}
+          defaultValue={clickedItem.iDescription}
           required
         />
 
@@ -44,16 +42,14 @@ const UpdateItem = props => {
         <input
           type='text'
           name='itemUpdateCost'
-          placeholder='Cost'
-          value={clickedItem.cost}
+          defaultValue={clickedItem.cost}
           required
         />
 
         <label className='itemUrl'>Image URL:</label>
         <input type='text' 
         name='itemUpdateUrl' 
-        placeholder='Item URL'
-        value={clickedItem.image} />
+        defaultValue={clickedItem.image} />
         <div></div>
         <input
           type='submit'

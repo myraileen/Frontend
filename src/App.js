@@ -140,19 +140,17 @@ class App extends React.Component {
 
   // If we can get props to pass from the UpdateItem component... we know this axios update item function WILL WORK... 
   handleItemUpdate = event => {
-    console.log(this.state.itemName);
-    console.log(this.state);
+    console.log(this.state.itemUpdateName);
     console.log(`${backendUrl}update-item/${event.target.id}`)
-    console.log(this.state.updateItem)
     event.preventDefault();
     axios({
       method: "PUT",
       url: `${backendUrl}update-item/${event.target.id}`,
       data: {
-          item: this.state.itemName,
-          iDescription: this.state.itemDescription,
-          cost: this.state.itemCost,
-          image: this.state.itemUrl
+          item: this.state.itemUpdateName,
+          iDescription: this.state.itemUpdateDescription,
+          cost: this.state.itemUpdateCost,
+          image: this.state.itemUpdateUrl
         }
     }).then(updateItem => {
       this.getEventsAxios();
